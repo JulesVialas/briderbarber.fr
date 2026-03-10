@@ -1,9 +1,31 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { CONFIG } from "@/data/config";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Map() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="bg-bg px-6 py-24">
       <div className="mx-auto max-w-4xl">
@@ -14,20 +36,29 @@ export default function Map() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="overflow-hidden rounded-xl border border-neon-violet/20">
-            <iframe
-              src={CONFIG.googleMapsEmbed}
-              width="100%"
-              height="400"
-              style={{
-                border: "none",
-                borderRadius: "12px",
-                filter: "grayscale(30%)",
-              }}
-              loading="lazy"
-              title="Localisation Brider Barber"
-              allowFullScreen
-            />
+          <div
+            ref={containerRef}
+            className="overflow-hidden rounded-xl border border-neon-violet/20"
+          >
+            {isVisible ? (
+              <iframe
+                src={CONFIG.googleMapsEmbed}
+                width="100%"
+                height="400"
+                style={{
+                  border: "none",
+                  borderRadius: "12px",
+                  filter: "grayscale(30%)",
+                }}
+                loading="lazy"
+                title="Localisation Brider Barber"
+                allowFullScreen
+              />
+            ) : (
+              <div className="shimmer-placeholder flex h-[400px] items-center justify-center rounded-xl">
+                <p className="text-muted">Chargement de la carte...</p>
+              </div>
+            )}
           </div>
         </ScrollReveal>
 
