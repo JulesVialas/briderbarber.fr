@@ -14,7 +14,8 @@ interface Particle {
 }
 
 function createParticles(width: number, height: number): readonly Particle[] {
-  return Array.from({ length: 50 }, () => ({
+  const count = width < 768 ? 20 : 50;
+  return Array.from({ length: count }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
     vx: (Math.random() - 0.5) * 0.5,

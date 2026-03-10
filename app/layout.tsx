@@ -29,11 +29,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <link rel="dns-prefetch" href="https://www.instagram.com" />
-        <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://maps.google.com" />
-        <link rel="preconnect" href="https://www.instagram.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
       </head>
       <body className={`${spaceGrotesk.variable} antialiased`}>
         {children}
