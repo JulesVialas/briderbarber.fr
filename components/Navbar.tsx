@@ -62,7 +62,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 z-50 flex h-screen w-3/4 flex-col items-center justify-center gap-8 bg-black/95 backdrop-blur-lg md:hidden"
+            className="fixed inset-y-0 right-0 z-50 flex h-[100dvh] w-3/4 flex-col items-center justify-center gap-8 bg-black/95 backdrop-blur-lg md:hidden"
           >
             <button
               onClick={() => setIsOpen(false)}

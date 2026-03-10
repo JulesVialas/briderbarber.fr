@@ -42,7 +42,7 @@ export default function InstagramSection() {
               <iframe
                 src={CONFIG.instagramEmbedUrl}
                 width="100%"
-                height="600"
+                height="480"
                 frameBorder="0"
                 scrolling="no"
                 title="Feed Instagram Brider Barber"
@@ -50,7 +50,7 @@ export default function InstagramSection() {
                 style={{ border: "none", borderRadius: "12px" }}
               />
             ) : (
-              <div className="shimmer-placeholder flex h-[600px] items-center justify-center rounded-xl">
+              <div className="shimmer-placeholder flex h-[480px] items-center justify-center rounded-xl">
                 <p className="text-muted">Chargement...</p>
               </div>
             )}

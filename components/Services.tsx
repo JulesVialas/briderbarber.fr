@@ -115,7 +115,7 @@ export default function Services() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {CONFIG.services.map((service, i) => (
             <ScrollReveal key={service.name} delay={i * 0.1}>
               <motion.div
