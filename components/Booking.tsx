@@ -3,9 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CONFIG } from "@/data/config";
 import ScrollReveal from "./ScrollReveal";
-import NeonButton from "./NeonButton";
-
-const IS_PLACEHOLDER = CONFIG.calendlyUrl.includes("TON_USERNAME");
 
 function buildCalendlyEmbedUrl(): string {
   const params = new URLSearchParams({
@@ -21,8 +18,6 @@ export default function Booking() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (IS_PLACEHOLDER) return;
-
     const el = containerRef.current;
     if (!el) return;
 
@@ -61,20 +56,7 @@ export default function Booking() {
 
         <ScrollReveal>
           <div ref={containerRef} className="overflow-hidden rounded-xl">
-            {IS_PLACEHOLDER ? (
-              <div className="flex flex-col items-center gap-6 rounded-xl border border-neon-violet/20 bg-[#111] px-8 py-16">
-                <p className="text-center text-lg text-muted">
-                  Prends rendez-vous directement sur Calendly
-                </p>
-                <NeonButton
-                  href={CONFIG.calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  RÉSERVER SUR CALENDLY →
-                </NeonButton>
-              </div>
-            ) : isVisible ? (
+            {isVisible ? (
               <iframe
                 src={buildCalendlyEmbedUrl()}
                 width="100%"
