@@ -12,7 +12,7 @@ export default function Footer() {
           href={CONFIG.instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-neon-violet transition-colors hover:text-neon-orange"
+          className="text-sm text-[#b388ff] transition-colors hover:text-neon-orange"
         >
           @{CONFIG.instagram}
         </a>
