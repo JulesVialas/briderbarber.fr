@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brider Barber
 
-## Getting Started
+Site vitrine pour **Brider Barber**, barbier indépendant à Toulouse.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, TypeScript)
+- **Tailwind CSS 4**
+- **Framer Motion** — animations et transitions
+- **react-calendly** — widget de réservation en ligne
+
+## Démarrage
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Copier `.env.example` en `.env.local`
+2. Ouvrir `data/config.ts` et remplacer `TON_USERNAME` par votre identifiant Calendly
 
-## Learn More
+## Déploiement (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Connecter le dépôt GitHub
+git remote add origin https://github.com/USERNAME/brider-barber.git
+git push -u origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Importer le projet sur [vercel.com](https://vercel.com)
+2. Le déploiement est automatique à chaque push sur `main`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Structure
 
-## Deploy on Vercel
+```
+app/
+  layout.tsx        — Layout global, polices, SEO
+  page.tsx          — Assemblage des sections
+  globals.css       — Variables CSS, animations, scrollbar
+components/
+  Navbar.tsx        — Navigation sticky + drawer mobile
+  Hero.tsx          — Hero 100vh + canvas particules
+  Services.tsx      — Grille prestations + compteurs animés
+  InstagramSection.tsx — Feed Instagram embed (lazy loaded)
+  Booking.tsx       — Widget Calendly intégré
+  Map.tsx           — Google Maps iframe
+  Footer.tsx        — Footer avec liens
+  ScrollReveal.tsx  — Wrapper Framer Motion réutilisable
+  NeonButton.tsx    — Bouton néon orange / violet
+  CursorGlow.tsx    — Curseur custom néon
+data/
+  config.ts         — Configuration centralisée
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licence
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Privé — Tous droits réservés.
