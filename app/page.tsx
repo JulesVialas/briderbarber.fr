@@ -1,11 +1,15 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import InstagramSection from "@/components/InstagramSection";
-import Booking from "@/components/Booking";
-import Map from "@/components/Map";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
+
+const InstagramSection = dynamic(
+  () => import("@/components/InstagramSection"),
+);
+const Booking = dynamic(() => import("@/components/Booking"));
+const MapSection = dynamic(() => import("@/components/Map"));
 
 export default function Home() {
   return (
@@ -17,7 +21,7 @@ export default function Home() {
         <Services />
         <InstagramSection />
         <Booking />
-        <Map />
+        <MapSection />
       </main>
       <Footer />
     </>
